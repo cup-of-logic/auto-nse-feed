@@ -20,8 +20,7 @@ from pprint import pprint
 
 PATH = "https://www.nseindia.com/market-data/oi-spurts"
 CHROME_DRIVER_PATH = r"C:\Program Files (x86)\Web Driver\chromedriver.exe"
-# GSHEET_ID = "17oIOPPRMKJqJAzdzFmuaZE9qUu2CobqMmpn5kkkQyU4"
-GSHEET_ID = "1VUB5F70BxKfKE1tQ6vESrbpSLvS3QE5khPij9QnKFK0"
+GSHEET_ID = "GSHEET-ID"
 
 TABLE_DIV_ID = "oi_sprutz_table"
 TABLE_ID = "oiSpurtsTable"
@@ -122,7 +121,7 @@ class Scrape:
 
     def __setup_gspread(self):
         scope = ["https://www.googleapis.com/auth/spreadsheets"]
-        creds = Credentials.from_service_account_file("creds_.json", scopes=scope)
+        creds = Credentials.from_service_account_file("creds.json", scopes=scope)
         client = gspread.authorize(creds)
         self.sheet = client.open_by_key(GSHEET_ID).get_worksheet(0)
 
